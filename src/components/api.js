@@ -15,70 +15,77 @@ function getResponse(res) {
   return Promise.reject(`Ошибка: ${res.status}`);
 }
 
+// Универсальная функция запроса с проверкой ответа
+function request(url, options) {
+  // принимает два аргумента: урл и объект опций, как и `fetch`
+  return fetch(url, options).then(getResponse);
+};
+
+
 // Получение карточек
 export const getCards = () => {
-  return fetch(`${config.baseUrl}/cards`, {
+  return request(`${config.baseUrl}/cards`, {
     headers: config.headers,
-  }).then(getResponse);
+  })
 };
 
 // Добавление новой карточки
 export const addCard = (element) => {
-  return fetch(`${config.baseUrl}/cards`, {
+  return request(`${config.baseUrl}/cards`, {
     method: "POST",
     headers: config.headers,
     body: JSON.stringify({ name: element.name, link: element.link }),
-  }).then(getResponse);
+  })
 };
 
 // Удаление карточки
 export const deleteCardApi = (cardId) => {
-  return fetch(`${config.baseUrl}/cards/${cardId}`, {
+  return request(`${config.baseUrl}/cards/${cardId}`, {
     method: "DELETE",
     headers: config.headers,
-  }).then(getResponse);
+  })
 };
 
 // Обновление аватара
 export const updateAvatar = (avatarUrl) => {
-  return fetch(`${config.baseUrl}/users/me/avatar`, {
+  return request(`${config.baseUrl}/users/me/avatar`, {
     method: "PATCH",
     headers: config.headers,
     body: JSON.stringify({ avatar: avatarUrl }),
-  }).then(getResponse);
+  })
 };
 
 // Загрузка информации о пользователе
 export const getUserInfo = () => {
-  return fetch(`${config.baseUrl}/users/me`, {
+  return request(`${config.baseUrl}/users/me`, {
     headers: config.headers,
-  }).then(getResponse);
+  })
 };
 
 // Изменение профиля пользователя
 export const updateProfile = (userInfo) => {
-  return fetch(`${config.baseUrl}/users/me`, {
+  return request(`${config.baseUrl}/users/me`, {
     method: "PATCH",
     headers: config.headers,
     body: JSON.stringify({
       name: userInfo.name,
       about: userInfo.about,
     }),
-  }).then(getResponse);
+  })
 };
 
 // Постановка лайка
 export const likeCardApi = (cardId) => {
-  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+  return request(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: "PUT",
     headers: config.headers,
-  }).then(getResponse);
+  })
 };
 
 // Удаление лайка
 export const unlikeCardApi = (cardId) => {
-  return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+  return request(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: "DELETE",
     headers: config.headers,
-  }).then(getResponse);
+  })
 };

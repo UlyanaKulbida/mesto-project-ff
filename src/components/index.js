@@ -112,14 +112,14 @@ function handleFormSubmitNewAvatar(evt) {
     .then((newLink) => {
       profileEditAvatar.style.backgroundImage = `url(${newLink.avatar})`;
       closeModal(popupTypeAvatar);
+      popupAvatarForm.reset();
     })
     .catch((error) => {
       console.error(error);
     })
     .finally(() => {
       renderLoading(false, evt.submitter);
-    });
-  popupAvatarForm.reset();
+    });  
 }
 
 // Обработчик к форме "Редактировать аватар" для "submit"
@@ -169,14 +169,14 @@ function handleFormSubmitNewPlace(evt) {
         )
       );
       closeModal(popupTypeNewCard);
+      popupCardForm.reset();
     })
     .catch((error) => {
       console.error(error);
     })
     .finally(() => {
       renderLoading(false, evt.submitter);
-    });
-  popupCardForm.reset();
+    });  
 }
 
 // Обработчик к форме "Добавить новое место" для "submit"

@@ -7,6 +7,7 @@
 
 ### Языки и инструменты: **HTML, CSS, JS, GIT, Webpack**
 #### [Макет Mesto в Figma](https://www.figma.com/design/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160-460&t=nKfBgUs7fqXdTn4Y-0) 
+#### [Макет Mesto в Figma (валидация форм)](https://www.figma.com/design/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0-1&t=9PVrD4RBFNvThehv-0) 
 
 ------
 
